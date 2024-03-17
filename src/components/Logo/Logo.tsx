@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { cva } from 'class-variance-authority';
-import cn from '@/utils/cn';
+import cn from '@/helpers/cn';
 
 import { Routes } from '@/utils/enums';
 
@@ -24,11 +24,11 @@ export const Logo = ({ className, variant }: LogoProps) => {
 }
 
 const logoVariants = cva(
-  'border-2 rounded text-lg h-full flex items-center pl-2',
+  'border-2 rounded text-lg h-full flex items-center pl-2 transition-all duration-300 ease-out z-10',
   {
     variants: {
       variant: {
-        default: 'border-primary text-primary',
+        default: 'border-primary text-primary hover:bg-primary hover:bg-opacity-20',
         dark: 'border-main-black text-main-black'
       }
     },

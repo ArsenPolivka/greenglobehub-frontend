@@ -4,11 +4,38 @@
     "en": "Англійська"
   },
   "links": {
-    "home": "До головної",
-    "news": "До новин"
+    "home": "Головна",
+    "news": "Новини",
+    "recycle": "Переробка відходів",
+    "advices": "Поради",
+    "blog": "Блог"
   },
   "buttons": {
     "signIn": "Вхід",
     "signUp": "Реєстрація"
+  },
+  "home": {
+    "title": "Головна"
+  },
+  "news": {
+    "title": "Новини"
+  },
+  "recycle": {
+    "title": "Переробка відходів"
+  },
+  "advices": {
+    "title": "Поради"
+  },
+  "blog": {
+    "title": "Блог"
+  },
+  "greenGlobeAI": {
+    "title": "Green Globe AI сторінка"
+  },
+  "signIn": {
+    "title": "Вхід"
+  },
+  "signUp": {
+    "title": "Реєстрація"
   }
 }
