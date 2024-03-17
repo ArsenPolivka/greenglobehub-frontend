@@ -1,16 +1,9 @@
-import { Button } from "@/components/Button";
-import Link from "next/link";
+'use client';
+
+import { useClientTranslation } from "@/internationalization/i18n/useClientTranslations";
+import { redirect } from "next/navigation";
 
 export default function Home() {
-  return (
-    <main className="">
-      Home page
-
-      <Link href="/news">News</Link>
-
-      <Button type="button" className="bg-black px-4 py-2 rounded hover:bg-opacity-80 transition-all">
-        Custom Button
-      </Button>
-    </main>
-  );
+  const { i18n } = useClientTranslation();
+  return i18n.language === "en" ? redirect("/en") : redirect("/ua");
 }

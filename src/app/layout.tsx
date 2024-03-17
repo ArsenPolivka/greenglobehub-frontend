@@ -1,12 +1,18 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "../styles/globals.css";
+import { Nunito_Sans } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"] });
+import setGlobalLocaleHack from "@/internationalization/i18n/globalLocaleHack";
+import { LanguageDetector } from "@/utils/languageDetector";
+import '@/internationalization/i18n/i18n';
+
+import "../styles/globals.css";
+import { Header } from "@/components/Header";
+
+const nunitoSans = Nunito_Sans({ subsets: ["latin-ext"]});
 
 export const metadata: Metadata = {
-  title: "GreenGlobeHub - Портал для екологічних ініціатив",
-  description: "GreenGlobeHub - Портал для екологічних ініціатив, де ви можете знайти новини, проекти, події та інші корисні матеріали для розвитку екологічних ініціатив.",
+  title: "GreenGlobeHub - Portal for ecological initiatives",
+  description: "GreenGlobeHub is a platform for ecological initiatives, where you can find and support projects that are important to you.",
 };
 
 export default function RootLayout({
@@ -15,8 +21,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="uk">
-      <body className={inter.className}>{children}</body>
-    </html>
+    setGlobalLocaleHack(),
+    <>
+      <LanguageDetector>
+        <html lang="en">
+          <body className={nunitoSans.className}>{children}</body>
+        </html>
+      </LanguageDetector>
+    </>
   );
 }

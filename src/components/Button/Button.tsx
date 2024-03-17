@@ -3,10 +3,14 @@ import { cva } from "class-variance-authority";
 import cn from "@/utils/cn";
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-  variant?: "primary" | "secondary";
+  variant?: "primary" | "secondary" | "disabled";
 }
 
-export const Button = ({ className, variant, ...props }: ButtonProps) => {
+export const Button = ({
+  className,
+  variant,
+  ...props
+}: ButtonProps) => {
   return (
     <button
       className={cn(
@@ -19,12 +23,13 @@ export const Button = ({ className, variant, ...props }: ButtonProps) => {
 }
 
 const buttonVariants = cva(
-  'bg-blue-500 text-white',
+  'bg-transparent text-main-black py-3.5 px-6 border-2 rounded select-none transition-all',
   {
     variants: {
       variant: {
-        primary: 'bg-blue-500 text-white',
-        secondary: 'bg-gray-500 text-white',
+        primary: 'bg-primary border-primary hover:bg-primary-100 hover:border-primary-100',
+        secondary: 'border-primary hover:bg-primary',
+        disabled: 'bg-main-gray pointer-events-none'
       }
     },
     defaultVariants: {

@@ -36,7 +36,6 @@ a {
 
 /* Remove default button styles */
 button {
-  border: none;
   background: none;
   padding: 0;
   cursor: pointer;
