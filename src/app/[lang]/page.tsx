@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { useClientTranslation } from "@/internationalization/i18n/useClientTranslations";
+import { useClientTranslation } from "@/internationalization/useClientTranslations";
 
 export default function Page() {
   const [lang, setLang] = useState('');

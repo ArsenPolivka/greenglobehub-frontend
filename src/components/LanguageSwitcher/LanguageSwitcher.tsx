@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { usePathname } from 'next/navigation';
-import { useClientTranslation } from '@/internationalization/i18n/useClientTranslations';
+import { useClientTranslation } from '@/internationalization/useClientTranslations';
+
 import { Languages } from '@/utils/enums';
+import type { LanguagesT } from '@/utils/types';
 
 export const LanguageSwitcher = () => {
   const { i18n } = useClientTranslation();
@@ -43,7 +45,7 @@ type LanguageSwitcherDropdownProps = {
 const LanguageSwitcherDropdown = ({ changeLanguage }: LanguageSwitcherDropdownProps) => {
   const { t } = useClientTranslation();
 
-  const lngs: { [key: string]: { nativeName: string } } = {
+  const lngs: LanguagesT = {
     [Languages.UA]: { nativeName: t('languages.ua') },
     [Languages.EN]: { nativeName: t('languages.en') }
   };

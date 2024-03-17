@@ -1,9 +1,10 @@
 'use client';
 
-import { useClientTranslation } from "@/internationalization/i18n/useClientTranslations";
 import { redirect } from "next/navigation";
+import { useClientTranslation } from "@/internationalization/useClientTranslations";
+import { Languages } from "@/utils/enums";
 
 export default function Home() {
   const { i18n } = useClientTranslation();
-  return i18n.language === "en" ? redirect("/en") : redirect("/ua");
+  return i18n.language === Languages.EN ? redirect(`/${Languages.EN}`) : redirect(`/${Languages.UA}`);
 }
