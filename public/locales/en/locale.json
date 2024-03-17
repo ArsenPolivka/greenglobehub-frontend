@@ -1,0 +1,14 @@
+{
+  "languages": {
+    "ua": "Ukrainian",
+    "en": "English"
+  },
+  "links": {
+    "home": "Home",
+    "news": "News"
+  },
+  "buttons": {
+    "signIn": "Sign In",
+    "signUp": "Sign Up"
+  }
+}
