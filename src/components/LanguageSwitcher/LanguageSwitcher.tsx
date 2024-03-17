@@ -51,7 +51,7 @@ const LanguageSwitcherDropdown = ({ changeLanguage }: LanguageSwitcherDropdownPr
   ];
 
   return (
-    <div className='flex flex-col items-start divide-y bg-white shadow rounded absolute'>
+    <div className='flex flex-col items-start divide-y bg-white shadow rounded absolute z-10'>
       {lngs.map((lng) => (
         <button
           key={lng}

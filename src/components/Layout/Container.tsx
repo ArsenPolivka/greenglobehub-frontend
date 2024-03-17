@@ -1,6 +1,7 @@
 'use client';
 
 import { ReactNode } from "react";
+import dynamic from "next/dynamic";
 import cn from "@/helpers/cn";
 
 type ContainerProps = {
@@ -17,3 +18,5 @@ const Container = ({ children, className }: ContainerProps) => {
 }
 
 export default Container;
+
+export const ContainerNoSSR = dynamic(() => import('./Container'), { ssr: false });
