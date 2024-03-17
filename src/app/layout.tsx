@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import { Nunito_Sans } from "next/font/google";
 
-import setGlobalLocaleHack from "@/internationalization/i18n/globalLocaleHack";
+import setGlobalLocaleHack from "@/internationalization/globalLocaleHack";
 import { LanguageDetector } from "@/utils/languageDetector";
-import '@/internationalization/i18n/i18n';
+import '@/internationalization/i18n';
+import { Languages } from "@/utils/enums";
 
 import "../styles/globals.css";
-import { Header } from "@/components/Header";
 
 const nunitoSans = Nunito_Sans({ subsets: ["latin-ext"]});
 
@@ -24,7 +24,7 @@ export default function RootLayout({
     setGlobalLocaleHack(),
     <>
       <LanguageDetector>
-        <html lang="en">
+        <html lang={Languages.EN}>
           <body className={nunitoSans.className}>{children}</body>
         </html>
       </LanguageDetector>

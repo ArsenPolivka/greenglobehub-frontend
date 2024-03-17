@@ -3,7 +3,7 @@
 import { LanguageSwitcher } from '../LanguageSwitcher/LanguageSwitcher';
 import { Logo } from '../Logo';
 import { Button } from '../Button';
-import { useClientTranslation } from '@/internationalization/i18n/useClientTranslations';
+import { useClientTranslation } from '@/internationalization/useClientTranslations';
 
 export const Header = () => {
   const { t } = useClientTranslation();

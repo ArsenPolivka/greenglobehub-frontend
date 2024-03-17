@@ -1,13 +1,13 @@
 'use client';
 
 import Link from "next/link";
-import { useClientTranslation } from "@/internationalization/i18n/useClientTranslations";
+import { useClientTranslation } from "@/internationalization/useClientTranslations";
 
 export default function News() {
   const { t } = useClientTranslation();
 
   return (
-    <main className="">
+    <main>
       <Link href="/">{t("links.home")}</Link>
     </main>
   );

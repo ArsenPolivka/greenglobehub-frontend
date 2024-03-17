@@ -1,11 +1,11 @@
 'use client';
 
-import { useEffect } from 'react';
-import { useClientTranslation } from '@/internationalization/i18n/useClientTranslations';
+import { ReactNode, useEffect } from 'react';
+import { useClientTranslation } from '@/internationalization/useClientTranslations';
 import { Languages } from '@/utils/enums';
 
 type LanguageDetectorProps = {
-  children: React.ReactNode;
+  children: ReactNode;
 };
 
 export const LanguageDetector = ({ children }: LanguageDetectorProps) => {
