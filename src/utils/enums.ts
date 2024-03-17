@@ -5,5 +5,11 @@ export enum Languages {
 
 export enum Routes {
   Home = '/',
-  News = '/news'
+  News = '/news',
+  Recycle = '/recycle',
+  Advices = '/advices',
+  Blog = '/blog',
+  GreenGlobeAI = '/ggai',
+  SignIn = '/signIn',
+  SignUp = '/signUp',
 }

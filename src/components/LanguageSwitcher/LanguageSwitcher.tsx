@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { usePathname } from 'next/navigation';
+import Image from 'next/image';
 import { useClientTranslation } from '@/internationalization/useClientTranslations';
 
 import { Languages } from '@/utils/enums';
@@ -27,8 +28,9 @@ export const LanguageSwitcher = () => {
 
   return (
     <div className='relative'>
-      <button onClick={toggleDropdown}>
+      <button onClick={toggleDropdown} className='flex items-center gap-2'>
         {i18n.language.toUpperCase()}
+        <Image src="/arrow-down.svg" alt='arrow down' width={12} height={12}/>
       </button>
 
       {dropdownOpen && (
@@ -43,22 +45,20 @@ type LanguageSwitcherDropdownProps = {
 };
 
 const LanguageSwitcherDropdown = ({ changeLanguage }: LanguageSwitcherDropdownProps) => {
-  const { t } = useClientTranslation();
-
-  const lngs: LanguagesT = {
-    [Languages.UA]: { nativeName: t('languages.ua') },
-    [Languages.EN]: { nativeName: t('languages.en') }
-  };
+  const lngs = [
+    Languages.UA,
+    Languages.EN
+  ];
 
   return (
-    <div className='flex flex-col divide-y bg-white shadow rounded absolute'>
-      {Object.keys(lngs).map((lng) => (
+    <div className='flex flex-col items-start divide-y bg-white shadow rounded absolute'>
+      {lngs.map((lng) => (
         <button
           key={lng}
           onClick={() => changeLanguage(lng)}
           className='py-2 px-4'
         >
-          {lngs[lng].nativeName}
+          {lng.toUpperCase()}
         </button>
       ))}
     </div>

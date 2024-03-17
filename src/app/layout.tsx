@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Nunito_Sans } from "next/font/google";
 
 import setGlobalLocaleHack from "@/internationalization/globalLocaleHack";
-import { LanguageDetector } from "@/utils/languageDetector";
+import { LanguageDetector } from "@/helpers/languageDetector";
 import '@/internationalization/i18n';
 import { Languages } from "@/utils/enums";
 
@@ -24,7 +24,7 @@ export default function RootLayout({
     setGlobalLocaleHack(),
     <>
       <LanguageDetector>
-        <html lang={Languages.EN}>
+        <html lang={Languages.EN} className="bg-main-white">
           <body className={nunitoSans.className}>{children}</body>
         </html>
       </LanguageDetector>
