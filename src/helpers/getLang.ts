@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-const getLang = () => {
+const GetLang = () => {
   const [lang, setLang] = useState('');
 
   useEffect(() => {
@@ -16,4 +16,4 @@ const getLang = () => {
   return lang;
 };
 
-export default getLang;
+export default GetLang;
