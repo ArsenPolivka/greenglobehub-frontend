@@ -14,8 +14,7 @@ import { useBreakpoints } from '@/hooks/useBreakpoints';
 import { useRouter } from 'next/navigation';
 import { Routes } from '@/utils/enums';
 import getLang from '@/helpers/getLang';
-
-const NoSSRContainer = dynamic(() => import('../Layout'), { ssr: false })
+import { ContainerNoSSR } from '@/components/Layout/Container';
 
 export const Header = () => {
   const { t } = useClientTranslation();
@@ -34,7 +33,7 @@ export const Header = () => {
   const handleSignUpNavigation = () => router.replace(`/${lang}/${Routes.SignUp}`);
 
   return (
-    <NoSSRContainer className='flex justify-between items-center gap-20 max-w-full'>
+    <ContainerNoSSR className='flex justify-between items-center gap-20 max-w-full'>
       <Logo />
       {isXlScreen ? (
         <div className='flex items-center gap-16'>
@@ -59,6 +58,6 @@ export const Header = () => {
           {isOpen && <Navigation lang={lang} mobile />}
         </>
       )}
-    </NoSSRContainer>
+    </ContainerNoSSR>
   )
 }

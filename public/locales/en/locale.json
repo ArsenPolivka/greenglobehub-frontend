@@ -15,7 +15,20 @@
     "signUp": "Sign Up"
   },
   "home": {
-    "title": "Home"
+    "title": "Home",
+    "intro": {
+      "notification": {
+        "title": "Advice of the day",
+        "text": "Save paper. Use electronic communication tools and switch to electronic documents."
+      },
+      "h1": {
+        "firstPart": "Every day — a new",
+        "secondPart": "to change the world."
+      },
+      "h2": "Be a part of it.",
+      "plainText": "Want to change the world? Ask for advice from our AI assistant.",
+      "buttonText": "Try GreenGlobe AI"
+    }
   },
   "news": {
     "title": "News"
