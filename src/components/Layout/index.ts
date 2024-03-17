@@ -1,1 +1,1 @@
-export { default } from './Container';
+export { ContainerNoSSR } from './Container';
