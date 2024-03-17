@@ -4,7 +4,11 @@ import { useEffect } from 'react';
 import { useClientTranslation } from '@/internationalization/i18n/useClientTranslations';
 import { Languages } from '@/utils/enums';
 
-export const LanguageDetector = () => {
+type LanguageDetectorProps = {
+  children: React.ReactNode;
+};
+
+export const LanguageDetector = ({ children }: LanguageDetectorProps) => {
   const { i18n } = useClientTranslation();
 
   useEffect(() => {
@@ -15,8 +19,11 @@ export const LanguageDetector = () => {
     } else {
       i18n.changeLanguage(Languages.UA);
     }
-    console.log('Language detected based on pathname');
   }, [i18n]);
 
-  return null;
+  return (
+    <>
+      {children}
+    </>
+  );
 };

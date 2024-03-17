@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { usePathname } from 'next/navigation';
 import { useClientTranslation } from '@/internationalization/i18n/useClientTranslations';
@@ -14,26 +14,14 @@ export const LanguageSwitcher = () => {
   const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
 
   const changeLanguage = (lng: string) => {
-    const newPathname = pathname.replace(/\/(ua|en)$/, `/${lng}`); // Replace language segment
-    i18n.changeLanguage(lng); // Change language first
-    setDropdownOpen(false); // Close the dropdown after language change
-    // Delay the router push slightly to ensure it occurs after the language change
+    const newPathname = pathname.replace(/^\/(ua|en)(\/.*)?$/, `/${lng}$2`);
+    i18n.changeLanguage(lng);
+    setDropdownOpen(false);
+
     setTimeout(() => {
-      router.push(newPathname); // Push the new pathname after language change
+      router.push(newPathname);
     }, 100);
-
-    console.log(`Language changed to ${lng}`)
   };
-
-  useEffect(() => {
-    // check the pathname and set the language accordingly
-    if (pathname.includes(Languages.EN)) {
-      i18n.changeLanguage(Languages.EN);
-    } else {
-      i18n.changeLanguage(Languages.UA);
-    }
-    console.log('trigger language change')
-  }, [pathname, i18n.language]);
 
   return (
     <div className='relative'>
@@ -56,8 +44,8 @@ const LanguageSwitcherDropdown = ({ changeLanguage }: LanguageSwitcherDropdownPr
   const { t } = useClientTranslation();
 
   const lngs: { [key: string]: { nativeName: string } } = {
-    ua: { nativeName: t('languages.ua') },
-    en: { nativeName: t('languages.en') }
+    [Languages.UA]: { nativeName: t('languages.ua') },
+    [Languages.EN]: { nativeName: t('languages.en') }
   };
 
   return (

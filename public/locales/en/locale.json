@@ -4,8 +4,8 @@
     "en": "English"
   },
   "links": {
-    "home": "Home",
-    "news": "News"
+    "home": "Go to Home",
+    "news": "Go to News"
   },
   "buttons": {
     "signIn": "Sign In",

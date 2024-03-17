@@ -6,6 +6,7 @@ import { LanguageDetector } from "@/utils/languageDetector";
 import '@/internationalization/i18n/i18n';
 
 import "../styles/globals.css";
+import { Header } from "@/components/Header";
 
 const nunitoSans = Nunito_Sans({ subsets: ["latin-ext"]});
 
@@ -21,9 +22,12 @@ export default function RootLayout({
 }>) {
   return (
     setGlobalLocaleHack(),
-    <LanguageDetector />,
-    <html lang="en">
-      <body className={nunitoSans.className}>{children}</body>
-    </html>
+    <>
+      <LanguageDetector>
+        <html lang="en">
+          <body className={nunitoSans.className}>{children}</body>
+        </html>
+      </LanguageDetector>
+    </>
   );
 }
