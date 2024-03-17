@@ -2,12 +2,12 @@
 
 import { useClientTranslation } from "@/internationalization/useClientTranslations";
 
-export default function News() {
+export default function SignUp() {
   const { t } = useClientTranslation();
 
   return (
     <main>
-      <h1>{t('news.title')}</h1>
+      <h1>{t('signUp.title')}</h1>
     </main>
   );
 }

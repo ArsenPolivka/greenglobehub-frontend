@@ -1,6 +1,6 @@
 import { ButtonHTMLAttributes } from "react"
 import { cva } from "class-variance-authority";
-import cn from "@/utils/cn";
+import cn from "@/helpers/cn";
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: "primary" | "secondary" | "disabled";

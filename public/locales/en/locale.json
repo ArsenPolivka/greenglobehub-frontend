@@ -4,11 +4,38 @@
     "en": "English"
   },
   "links": {
-    "home": "Go to Home",
-    "news": "Go to News"
+    "home": "Home",
+    "news": "News",
+    "recycle": "Recycle",
+    "advices": "Advices",
+    "blog": "Blog"
   },
   "buttons": {
     "signIn": "Sign In",
     "signUp": "Sign Up"
+  },
+  "home": {
+    "title": "Home"
+  },
+  "news": {
+    "title": "News"
+  },
+  "recycle": {
+    "title": "Recycle"
+  },
+  "advices": {
+    "title": "Advices"
+  },
+  "blog": {
+    "title": "Blog"
+  },
+  "greenGlobeAI": {
+    "title": "Green Globe AI page"
+  },
+  "signIn": {
+    "title": "Sign In"
+  },
+  "signUp": {
+    "title": "Sign Up"
   }
 }
