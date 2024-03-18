@@ -12,7 +12,9 @@ export const LanguageDetector = ({ children }: LanguageDetectorProps) => {
   const { i18n } = useClientTranslation();
 
   useEffect(() => {
-    const pathname = window.location.pathname;
+    let pathname = window.location.pathname;
+
+    pathname = pathname.replace(/\/{2,}/g, '/');
 
     if (pathname.includes(Languages.EN)) {
       i18n.changeLanguage(Languages.EN);
