@@ -24,7 +24,7 @@ export const Logo = ({ className, variant }: LogoProps) => {
 }
 
 const logoVariants = cva(
-  'border-2 rounded text-lg h-full flex items-center pl-2 transition-all duration-300 ease-out z-10',
+  'border-2 rounded text-lg h-full flex items-center pl-2 transition-all duration-300 ease-out z-20',
   {
     variants: {
       variant: {

@@ -10,22 +10,30 @@ import { Routes } from "@/utils/enums";
 type NavigationProps = {
   mobile?: boolean;
   lang: string;
+  closeBurger?: () => void;
 }
 
-export const Navigation = ({ mobile = false, lang }: NavigationProps) => {
+export const Navigation = ({ mobile = false, lang, closeBurger }: NavigationProps) => {
   const links = getLinks();
   const router = useRouter();
 
   const { t } = useClientTranslation();
 
   const containerClassName = mobile
-    ? "flex flex-col gap-10 absolute top-0 bottom-0 left-0 right-0 justify-center items-center bg-main-white px-5"
+    ? "flex flex-col gap-10 absolute top-0 bottom-0 left-0 right-0 justify-center items-center bg-main-white px-5 z-10"
     : "flex gap-4 h-full";
 
   const linkClassName = mobile ? "w-full text-center" : "";
 
-  const handleSignInNavigation = () => router.push(`/${lang}/${Routes.SignIn}`);
-  const handleSignUpNavigation = () => router.push(`/${lang}/${Routes.SignUp}`);
+  const handleSignInNavigation = () => {
+    router.push(`/${lang}/${Routes.SignIn}`);
+    closeBurger && closeBurger();
+  };
+
+  const handleSignUpNavigation = () => {
+    router.push(`/${lang}/${Routes.SignUp}`);
+    closeBurger && closeBurger();
+  };
 
   return (
     <div className={containerClassName}>
@@ -40,6 +48,7 @@ export const Navigation = ({ mobile = false, lang }: NavigationProps) => {
               to={newPath}
               variant={variant as LinkVariant}
               className={linkClassName}
+              onClick={closeBurger}
             >
               {title}
             </Link>

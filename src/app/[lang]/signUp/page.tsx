@@ -1,13 +1,7 @@
-'use client';
-
-import { useClientTranslation } from "@/internationalization/useClientTranslations";
-
-export default function SignUp() {
-  const { t } = useClientTranslation();
-
+export default async function Page(): Promise<JSX.Element> {
   return (
     <main>
-      <h1>{t('signUp.title')}</h1>
+      <h1>Sign Up</h1>
     </main>
   );
 }

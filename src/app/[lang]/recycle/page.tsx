@@ -1,13 +1,7 @@
-'use client';
-
-import { useClientTranslation } from "@/internationalization/useClientTranslations";
-
-export default function Recycle() {
-  const { t } = useClientTranslation();
-
+export default async function Page(): Promise<JSX.Element> {
   return (
     <main className="">
-      <h1>{t('recycle.title')}</h1>
+      <h1>Recycle</h1>
     </main>
   );
 }

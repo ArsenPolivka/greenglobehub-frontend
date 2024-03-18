@@ -1,13 +1,7 @@
-'use client';
-
-import { useClientTranslation } from "@/internationalization/useClientTranslations";
-
-export default function News() {
-  const { t } = useClientTranslation();
-
+export default async function Page(): Promise<JSX.Element> {
   return (
     <main>
-      <h1>{t('news.title')}</h1>
+      <h1>News</h1>
     </main>
   );
 }
