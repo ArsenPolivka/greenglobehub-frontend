@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { Button } from '@/components/Button';
 import { ContainerNoSSR } from '@/components/Layout';
 import { useClientTranslation } from '@/internationalization/useClientTranslations';
-import { STYLES, images } from '@/utils/constants';
+import { images } from '@/utils/constants';
 
 export const About = () => {
   const { t } = useClientTranslation();
@@ -27,7 +27,7 @@ export const About = () => {
 
   return (
     <ContainerNoSSR>
-      <h2 className={`${STYLES.H2} mb-10`}>{title}</h2>
+      <h2 className={`text-h2-mobile lg:text-h2 uppercase color-main-black mb-10`}>{title}</h2>
 
       <div className='flex flex-col-reverse xl:flex-row justify-between gap-10 xl:gap-40'>
         <div className='flex flex-col justify-between gap-10'>
