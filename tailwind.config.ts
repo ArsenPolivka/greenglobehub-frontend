@@ -20,6 +20,8 @@ const config: Config = {
       fontSize: {
         'h1': '54px',
         'h1-mobile': '32px',
+        'h2': '32px',
+        'h2-mobile': '24px',
       },
     },
   },

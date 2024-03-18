@@ -32,3 +32,13 @@ export const getLinks = () => {
 
   return links;
 };
+
+export const STYLES = {
+  H2: 'text-h2-mobile lg:text-h2 uppercase color-main-black',
+}
+
+export const images = {
+  about: {
+    image: 'https://res.cloudinary.com/dykizktlm/image/upload/v1710789592/greeen%20globe%20hub/ivan-bandura-W17FU_GuyVQ-unsplash_xacddd.jpg',
+  }
+}

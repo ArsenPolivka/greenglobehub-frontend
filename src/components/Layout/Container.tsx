@@ -11,7 +11,7 @@ type ContainerProps = {
 
 const Container = ({ children, className }: ContainerProps) => {
   return (
-    <section className={cn('container px-5 lg:px-16 py-8 lg:py-10', className)}>
+    <section className={cn('container px-5 lg:px-16 py-8 lg:py-10 max-w-full', className)}>
       { children }
     </section>
   )
