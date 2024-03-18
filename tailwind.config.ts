@@ -19,6 +19,7 @@ const config: Config = {
       },
       fontSize: {
         'h1': '54px',
+        'h1-mobile': '32px',
       },
     },
   },

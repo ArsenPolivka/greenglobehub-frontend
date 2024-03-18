@@ -1,13 +1,7 @@
-'use client';
-
-import { useClientTranslation } from "@/internationalization/useClientTranslations";
-
-export default function GGAI() {
-  const { t } = useClientTranslation();
-
+export default async function Page(): Promise<JSX.Element> {
   return (
     <main>
-      <h1>{t('greenGlobeAI.title')}</h1>
+      <h1>Green Globe AI</h1>
     </main>
   );
 }

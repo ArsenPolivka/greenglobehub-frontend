@@ -29,12 +29,15 @@ export const Header = () => {
     setIsOpen(!isOpen);
   };
 
+  const closeBurger = () => setIsOpen(false);
+
   const handleSignInNavigation = () => router.push(`/${lang}/${Routes.SignIn}`);
   const handleSignUpNavigation = () => router.replace(`/${lang}/${Routes.SignUp}`);
 
   return (
     <ContainerNoSSR className='flex justify-between items-center gap-20 max-w-full'>
       <Logo />
+
       {isXlScreen ? (
         <div className='flex items-center gap-16'>
           <Navigation lang={lang} />
@@ -55,7 +58,7 @@ export const Header = () => {
       ) : (
         <>
           <Burger isOpen={isOpen} onClick={toggleBurgerOpen} />
-          {isOpen && <Navigation lang={lang} mobile />}
+          {isOpen && <Navigation lang={lang} closeBurger={closeBurger} mobile />}
         </>
       )}
     </ContainerNoSSR>

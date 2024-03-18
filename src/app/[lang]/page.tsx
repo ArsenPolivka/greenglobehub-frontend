@@ -1,6 +1,6 @@
 import { Intro } from "@/sections/Home/Intro";
 
-export default function Page() {
+export default async function Page(): Promise<JSX.Element> {
   return (
     <main>
       <Intro />
