@@ -11,7 +11,8 @@ import { Loader } from '@/components/Loader';
 
 export const News = () => {
   const { t } = useClientTranslation();
-  const { articles, loading, error } = useFetchShortNews();
+  const query = encodeURIComponent('ecology OR climate OR change OR greta OR thunberg OR environment OR recycling OR recycle');
+  const { articles, loading, error } = useFetchShortNews(4);
 
   const title = t('home.news.title');
   const linkLabel = t('home.news.linkLabel');

@@ -16,11 +16,11 @@ type NewsContentT = {
   },
 }
 
-type NewsCardProps = {
+type NewsPageCardProps = {
   content: NewsContentT,
 };
 
-export const NewsCard = ({ content }: NewsCardProps) => {
+export const NewsPageCard = ({ content }: NewsPageCardProps) => {
   const { t } = useClientTranslation();
   const router = useRouter();
 
@@ -31,14 +31,14 @@ export const NewsCard = ({ content }: NewsCardProps) => {
   const handleNavigation = (href: string) => router.replace(`${href}`);
 
   return (
-    <div className="flex flex-col w-full bg-primary-50 rounded h-[600px]">
+    <div className="flex bg-primary-50 rounded items-center px-8">
       <img
         src={urlToImage}
         alt={title}
-        className="w-full h-full max-h-60 object-cover rounded-t"
+        className="w-52 h-40 object-cover rounded"
       />
 
-      <div className="flex flex-col h-full justify-between p-4 gap-3">
+      <div className="flex flex-col h-full justify-between p-8 py-10 gap-3">
         <div className="space-y-2">
           <h4 className="text-xs uppercase truncate opacity-50">
             { author || source?.name }
@@ -53,8 +53,8 @@ export const NewsCard = ({ content }: NewsCardProps) => {
           </p>
         </div>
 
-        <Button className="w-full" onClick={() => handleNavigation(url)}>
-          { buttonLabel }
+        <Button className="w-fit" onClick={() => handleNavigation(url)}>
+          Open article
         </Button>
       </div>
     </div>

@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
 import { getShortNews } from "@/api/news";
 
-export const useFetchShortNews = () => {
+export const useFetchShortNews = (pageSize: number) => {
   const [articles, setArticles] = useState<any>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const query = encodeURIComponent('ecology OR climate OR change OR greta OR thunberg OR environment OR recycling OR recycle');
 
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        const result = await getShortNews();
+        const result = await getShortNews(query, pageSize);
 
         setArticles(result.articles);
       } catch (error: any) {
