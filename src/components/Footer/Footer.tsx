@@ -55,8 +55,9 @@ export const Footer = () => {
                 label='Email'
                 type='email'
                 placeholder='Введіть ваш email'
-                className='w-full rounded'
+                className='peer w-full rounded focus:border-white'
                 wrapperClassName='w-full'
+                labelClassName='peer-focus:text-white'
               />
 
               <Button variant="primary" type='submit' className='bg-white px-4 py-3'>
