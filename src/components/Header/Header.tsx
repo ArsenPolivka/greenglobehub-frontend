@@ -1,29 +1,28 @@
 'use client';
 
 import { useState } from 'react';
-import dynamic from 'next/dynamic'
+import { useRouter } from 'next/navigation';
 
-import { LanguageSwitcher } from '../LanguageSwitcher/LanguageSwitcher';
-import { Logo } from '../Logo';
-import { Button } from '../Button';
-import { Burger } from './components/Burger';
+import { ContainerNoSSR } from '@/components/Layout/Container';
+import { LanguageSwitcher } from '../LanguageSwitcher';
 import { Navigation } from './components/Navigation';
+import { Burger } from './components/Burger';
+import { Button } from '../Button';
+import { Logo } from '../Logo';
 
 import { useClientTranslation } from '@/internationalization/useClientTranslations';
 import { useBreakpoints } from '@/hooks/useBreakpoints';
-import { useRouter } from 'next/navigation';
-import { Routes } from '@/utils/enums';
+
 import getLang from '@/helpers/getLang';
-import { ContainerNoSSR } from '@/components/Layout/Container';
+import { Routes } from '@/utils/enums';
 
 export const Header = () => {
-  const { t } = useClientTranslation();
   const [isOpen, setIsOpen] = useState(false);
+  const { isXlScreen } = useBreakpoints();
+  const { t } = useClientTranslation();
   const router = useRouter();
 
   const lang = getLang();
-
-  const { isXlScreen } = useBreakpoints();
 
   const toggleBurgerOpen = () => {
     setIsOpen(!isOpen);
