@@ -2,10 +2,10 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
+
 import { useClientTranslation } from '@/internationalization/useClientTranslations';
 
 import { Languages } from '@/utils/enums';
-import type { LanguagesT } from '@/utils/types';
 
 export const LanguageSwitcher = () => {
   const { i18n } = useClientTranslation();

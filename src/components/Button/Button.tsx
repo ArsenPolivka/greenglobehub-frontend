@@ -3,11 +3,11 @@ import { cva } from "class-variance-authority";
 import cn from "@/helpers/cn";
 
 type ButtonProps = {
-  variant?: "primary" | "secondary" | "disabled";
+  variant?:   "primary" | "secondary" | "disabled";
   className?: string;
-  type?: "button" | "submit" | "reset";
-  onClick?: () => void;
-  children: ReactNode;
+  type?:      "button" | "submit" | "reset";
+  onClick?:   () => void;
+  children:   ReactNode;
 }
 
 export const Button = ({

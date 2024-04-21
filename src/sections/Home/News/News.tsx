@@ -10,8 +10,7 @@ import { useFetchShortNews } from '@/hooks/news/useFetchShortNews';
 import { Loader } from '@/components/Loader';
 
 export const News = () => {
-  const { t } = useClientTranslation();
-  const query = encodeURIComponent('ecology OR climate OR change OR greta OR thunberg OR environment OR recycling OR recycle');
+  const { t, i18n } = useClientTranslation();
   const { articles, loading, error } = useFetchShortNews(4);
 
   const title = t('home.news.title');
@@ -34,7 +33,7 @@ export const News = () => {
           { title }
         </h2>
 
-        <Link to={Routes.News} variant='tertiary'>
+        <Link to={`${i18n.language}${Routes.News}`} variant='tertiary'>
           { linkLabel }
         </Link>
       </div>

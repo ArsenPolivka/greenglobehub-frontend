@@ -3,35 +3,35 @@ export type LanguagesT = {
 };
 
 export type VideoT = {
-  etag: string;
+  etag:      string;
   id: {
-    kind: string;
+    kind:    string;
     videoId: string;
   };
   snippet: {
-    channelId: string;
-    channelTitle: string;
-    description: string;
+    channelId:            string;
+    channelTitle:         string;
+    description:          string;
     liveBroadcastContent: string;
-    publishTime: string;
-    publishedAt: string;
+    publishTime:          string;
+    publishedAt:          string;
     thumbnails: {
       default: {
-        width: number;
+        width:  number;
         height: number;
-        url: string;
+        url:    string;
       };
       high: {
-        width: number;
+        width:  number;
         height: number;
-        url: string;
+        url:    string;
       };
       medium: {
-        width: number;
+        width:  number;
         height: number;
-        url: string;
+        url:    string;
       }
     };
-    title: string;
+    title:      string;
   };
 };
