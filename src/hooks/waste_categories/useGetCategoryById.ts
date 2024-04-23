@@ -1,20 +1,18 @@
-"use client";
-
 import { useEffect, useState } from "react";
-import { getAllCategories } from "@/api/waste_categories";
+import { getCategoryById } from "@/api/waste_categories";
 import type { Category } from "@/utils/types";
 
-export const useCategories = () => {
-  const [categories, setCategories] = useState<Category[]>([]);
+export const useGetCategoryById = (categoryId: string) => {
+  const [category, setCategory] = useState<Category | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
   useEffect(() => {
-    const fetchCategories = async () => {
+    const fetchCategory = async () => {
       try {
         setLoading(true);
-        const result = await getAllCategories();
-        setCategories(result);
+        const result = await getCategoryById(categoryId);
+        setCategory(result[0]);
       } catch (error: any) {
         console.error(error);
         setError(error.message);
@@ -23,11 +21,11 @@ export const useCategories = () => {
       }
     };
 
-    fetchCategories();
+    fetchCategory();
   }, []);
 
   return {
-    categories,
+    category,
     loading,
     error,
   };
