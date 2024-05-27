@@ -4,8 +4,10 @@ import cn from '@/helpers/cn';
 
 import { Routes } from '@/utils/enums';
 
+type LogoVariant = 'default' | 'dark';
+
 type LogoProps = {
-  variant?: 'default' | 'dark';
+  variant?: LogoVariant;
   className?: string;
 };
 

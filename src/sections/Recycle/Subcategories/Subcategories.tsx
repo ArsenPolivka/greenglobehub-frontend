@@ -16,10 +16,8 @@ export const Subcategories = ({ categoryId }: SubcategoriesProps) => {
   if (loading || loadingCategory) return <p>Loading...</p>;
   if (error || errorCategory) return <p>Error: {error || errorCategory}</p>;
 
-  console.log(category, subcategories);
-
   return (
-    <ContainerNoSSR>
+    <>
       <h2 className={`text-h2-mobile lg:text-h2 uppercase color-main-black mb-10`}>{category?.name}</h2>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 justify-items-stretch">
@@ -27,6 +25,6 @@ export const Subcategories = ({ categoryId }: SubcategoriesProps) => {
           <CategoryCard key={index} subcategory={subcategory} />
         ))}
       </div>
-    </ContainerNoSSR>
+    </>
   )
 }

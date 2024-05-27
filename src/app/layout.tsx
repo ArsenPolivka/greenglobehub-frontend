@@ -5,6 +5,7 @@ import "@/internationalization/i18n";
 import cn from "@/helpers/cn";
 import setGlobalLocaleHack from "@/internationalization/globalLocaleHack";
 import { LanguageDetector } from "@/helpers/languageDetector";
+import { AuthProvider } from "@/context/auth/authProvider";
 
 import { Languages } from "@/utils/enums";
 
@@ -27,6 +28,7 @@ export default function RootLayout({
     setGlobalLocaleHack(),
     (
       <>
+      <AuthProvider>
         <LanguageDetector>
           <html lang={Languages.EN} className="bg-main-white">
             <body className={cn(nunitoSans.className, "flex flex-col min-h-screen")}>
@@ -34,6 +36,7 @@ export default function RootLayout({
             </body>
           </html>
         </LanguageDetector>
+      </AuthProvider>
       </>
     )
   );
