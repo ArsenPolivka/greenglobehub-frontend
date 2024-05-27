@@ -1,7 +1,11 @@
-export default async function Page(): Promise<JSX.Element> {
+import { SignUpForm } from '@/sections/SignUp/SignUpForm';
+
+const SignUp = () => {
   return (
-    <main>
-      <h1>Sign Up</h1>
-    </main>
-  );
-}
+    <>
+      <SignUpForm />
+    </>
+  )
+};
+
+export default SignUp;

@@ -11,7 +11,7 @@ export const Categories = () => {
   if (error) return <p>Error: {error}</p>;
 
   return (
-    <ContainerNoSSR>
+    <>
       <h2 className={`text-h2-mobile lg:text-h2 uppercase color-main-black mb-10`}>Categories</h2>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 justify-items-stretch">
@@ -19,6 +19,6 @@ export const Categories = () => {
           <CategoryCard key={index} category={category} />
         ))}
       </div>
-    </ContainerNoSSR>
+    </>
   )
 }
