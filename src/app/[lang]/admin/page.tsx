@@ -1,6 +1,8 @@
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 
+import { ArticleList } from '@/sections/Blog/ArticleList';
+
 export default async function Page({ params }: { params: { lang: string, rest: string } }): Promise<JSX.Element> {
   const cookieStore = cookies();
   const authToken = cookieStore.get('authToken');
@@ -25,7 +27,7 @@ export default async function Page({ params }: { params: { lang: string, rest: s
 
   return (
     <>
-      <div>ADMIN ADVICES</div>
+      <ArticleList authToken={authToken.value} />
     </>
   );
 }

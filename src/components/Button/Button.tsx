@@ -9,12 +9,16 @@ type ButtonProps = {
   type?: "button" | "submit" | "reset";
   onClick?: () => void;
   children: ReactNode;
+  ref?: React.ForwardedRef<HTMLButtonElement>;
+  disabled?: boolean;
 }
 
 export const Button = ({
   className,
   variant,
   children,
+  ref,
+  disabled,
   ...props
 }: ButtonProps) => {
   return (
@@ -23,6 +27,8 @@ export const Button = ({
         buttonVariants({ variant }),
         className
       )}
+      ref={ref}
+      disabled={disabled}
       {...props}
     >
       { children }

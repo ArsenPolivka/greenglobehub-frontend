@@ -13,14 +13,13 @@ export async function login(email: string, password: string): Promise<any> {
   return response.json();
 }
 
-export async function signUp(email: string, password: string): Promise<any> {
+export async function signUp(name: string, email: string, password: string, confirmPassword: string): Promise<any> {
   const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_BACKEND_URL}/auth/sign-up`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ email, password }),
-    credentials: 'include', // Ensure cookies are included in requests
+    body: JSON.stringify({ name, email, password, confirmPassword }),
+    credentials: 'include',
   });
-
 
   if (!response.ok) {
     throw new Error('Failed to sign up');
@@ -39,6 +38,19 @@ export async function getUser(token: string): Promise<any> {
     headers: { 'Content-Type': 'application/json' },
     credentials: 'include',
     body: JSON.stringify({ token }),
+  });
+
+  if (!response.ok) {
+    throw new Error('Failed to get user');
+  }
+
+  return response.json();
+}
+
+export async function getUserById(id: string): Promise<any> {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_BACKEND_URL}/auth/user/${id}`, {
+    method: 'GET',
+    headers: { 'Content-Type': 'application/json' },
   });
 
   if (!response.ok) {

@@ -25,6 +25,8 @@ type HeaderProps = {
 
 export const Header = ({ authToken }:HeaderProps) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [userState, setUserState] = useState<any>(null);
+
   const { isXlScreen } = useBreakpoints();
   const { t } = useClientTranslation();
   const router = useRouter();
@@ -52,15 +54,20 @@ export const Header = ({ authToken }:HeaderProps) => {
   };
 
   useEffect(() => {
-    if (!user && authToken) {
+    if (authToken) {
       const fetchUser = async () => {
         const user = await getUser(authToken);
         setState({ user, token: authToken });
+        setUserState(user);
       };
 
       fetchUser();
     }
-  }, [user, authToken]);
+  }, [authToken, setUserState]);
+
+  useEffect(() => {
+    setUserState(user);
+  }, [user]);
 
   return (
     <ContainerNoSSR className='flex justify-between items-center gap-20 max-w-full'>
@@ -85,9 +92,9 @@ export const Header = ({ authToken }:HeaderProps) => {
             ) : (
               <>
                 <Link href='/' className='text-black'>
-                  {user.user?.email || '-'}
+                  {user ? (user.name || user[0].name) : '-'}
                 </Link>
-                <Button onClick={handleLogout}>
+                <Button variant='secondary' onClick={handleLogout}>
                   Logout
                 </Button>
               </>
