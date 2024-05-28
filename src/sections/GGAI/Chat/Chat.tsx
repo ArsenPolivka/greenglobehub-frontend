@@ -85,7 +85,7 @@ export const Chat = () => {
             className='w-full h-full'
             placeholder='Enter your question'
             value={input}
-            onChange={handleChange}
+            onChangeInput={handleChange}
           />
 
           <Button className='h-fit' type='submit'>Send</Button>

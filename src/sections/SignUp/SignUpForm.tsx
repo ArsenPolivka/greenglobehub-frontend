@@ -18,8 +18,10 @@ type SignUpFormProps = {
 }
 
 export const SignUpForm = ({ type = "register" }: SignUpFormProps) => {
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
 
   const [, setState] = useAuthContext();
@@ -36,11 +38,13 @@ export const SignUpForm = ({ type = "register" }: SignUpFormProps) => {
       if (type === 'login') {
         const response = await login(email, password);
 
-        setState({ user: response.user, token: response.session.access_token });
+        setState({ user: response.userData, token: response.session.access_token });
         router.push(`/${lang}/admin`);
+
         return;
       }
-      const response = await signUp(email, password);
+
+      const response = await signUp(name, email, password, confirmPassword);
 
       setState({ user: response.user, token: response.session.access_token });
       router.push(`/${lang}/admin`);
@@ -56,11 +60,22 @@ export const SignUpForm = ({ type = "register" }: SignUpFormProps) => {
           {loginText}
         </h2>
 
+        {type === 'register' ? (
+          <Input
+            type="text"
+            placeholder="Name"
+            value={name}
+            onChangeInput={(e) => setName(e.target.value)}
+            wrapperClassName='w-full mb-2'
+            className='w-full'
+          />
+        ) : null}
+
         <Input
           type="email"
           placeholder="Email"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChangeInput={(e) => setEmail(e.target.value)}
           wrapperClassName='w-full mb-2'
           className='w-full'
         />
@@ -69,10 +84,22 @@ export const SignUpForm = ({ type = "register" }: SignUpFormProps) => {
           type="password"
           placeholder="Password"
           value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          wrapperClassName='w-full mb-6'
+          onChangeInput={(e) => setPassword(e.target.value)}
+          wrapperClassName='w-full mb-2'
           className='w-full'
         />
+
+        {type === 'register' ? (
+          <Input
+            type="password"
+            placeholder="Confirm password"
+            value={confirmPassword}
+            onChangeInput={(e) => setConfirmPassword(e.target.value)}
+            wrapperClassName='w-full mb-6'
+            className='w-full'
+          />
+        ) : null}
+
         {error && <p className='absolute left-0 bottom-[104px] text-red-700'>{error}</p>}
 
         <Button type='submit' className='w-full'>

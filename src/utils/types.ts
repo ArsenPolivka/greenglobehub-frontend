@@ -50,3 +50,15 @@ export type Subcategory = {
   description: string;
   is_middle: boolean;
 }
+
+export type ArticleT = {
+  id?: string;
+  title: string;
+  description: string;
+  thumbnail: string;
+  content: string;
+  likesCount: number;
+  authorId: string;
+  createdAt: string;
+  updatedAt?: string;
+}

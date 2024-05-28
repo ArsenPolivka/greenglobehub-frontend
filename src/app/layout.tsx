@@ -5,7 +5,9 @@ import "@/internationalization/i18n";
 import cn from "@/helpers/cn";
 import setGlobalLocaleHack from "@/internationalization/globalLocaleHack";
 import { LanguageDetector } from "@/helpers/languageDetector";
+
 import { AuthProvider } from "@/context/auth/authProvider";
+import { ArticleProvider } from "@/context/articles/articleProvider";
 
 import { Languages } from "@/utils/enums";
 
@@ -29,13 +31,15 @@ export default function RootLayout({
     (
       <>
       <AuthProvider>
-        <LanguageDetector>
-          <html lang={Languages.EN} className="bg-main-white">
-            <body className={cn(nunitoSans.className, "flex flex-col min-h-screen")}>
-              { children }
-            </body>
-          </html>
-        </LanguageDetector>
+        <ArticleProvider>
+          <LanguageDetector>
+            <html lang={Languages.EN} className="bg-main-white">
+              <body className={cn(nunitoSans.className, "flex flex-col min-h-screen")}>
+                { children }
+              </body>
+            </html>
+          </LanguageDetector>
+        </ArticleProvider>
       </AuthProvider>
       </>
     )
