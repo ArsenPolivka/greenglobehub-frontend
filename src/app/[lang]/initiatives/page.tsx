@@ -1,9 +1,9 @@
-import { Advices } from '@/sections/Advices';
+import { Initiatives } from '@/sections/Initiatives';
 
 export default async function Page(): Promise<JSX.Element> {
   return (
     <>
-      <Advices />
+      <Initiatives />
     </>
   );
 }

@@ -6,7 +6,7 @@ import { NewsCard } from "@/components/NewsCard";
 import { useFetchVideos } from "@/hooks/videos/useFetchVideos";
 
 export const Interviews = () => {
-  const { videos, loading, error } = useFetchVideos("interview about ecology", 4);
+  const { videos, loading, error } = useFetchVideos("videos about ecology, eco-activism, environment", 4);
 
   if (loading) {
     return (

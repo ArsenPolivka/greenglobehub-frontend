@@ -7,7 +7,7 @@ export enum Routes {
   Home = '/',
   News = '/news',
   Recycle = '/recycle',
-  Advices = '/advices',
+  Advices = '/initiatives',
   Blog = '/blog',
   GreenGlobeAI = '/ggai',
   SignIn = '/signIn',

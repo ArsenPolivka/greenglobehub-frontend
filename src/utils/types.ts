@@ -62,3 +62,27 @@ export type ArticleT = {
   createdAt: string;
   updatedAt?: string;
 }
+
+export type InitiativeT = {
+  id: string;
+  authorId: string;
+  name: string;
+  description: string;
+  thumbnail: string;
+  address: string;
+  donateUrl: string;
+  website: string;
+  members: string[];
+  posts: string[];
+  events: string[];
+  updatedAt: Date;
+  createdAt: Date;
+}
+
+export type EventT = {
+  title: string;
+  description: string;
+  startDate: Date;
+  thumbnail: string;
+  initiativeId: string;
+};
