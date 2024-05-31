@@ -1,14 +1,24 @@
-import { ButtonHTMLAttributes } from "react"
+import { ReactNode } from "react";
 import { cva } from "class-variance-authority";
+
 import cn from "@/helpers/cn";
 
-type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+type ButtonProps = {
   variant?: "primary" | "secondary" | "disabled";
+  className?: string;
+  type?: "button" | "submit" | "reset";
+  onClick?: () => void;
+  children: ReactNode;
+  ref?: React.ForwardedRef<HTMLButtonElement>;
+  disabled?: boolean;
 }
 
 export const Button = ({
   className,
   variant,
+  children,
+  ref,
+  disabled,
   ...props
 }: ButtonProps) => {
   return (
@@ -17,13 +27,17 @@ export const Button = ({
         buttonVariants({ variant }),
         className
       )}
+      ref={ref}
+      disabled={disabled}
       {...props}
-    />
+    >
+      { children }
+    </button>
   )
 }
 
 const buttonVariants = cva(
-  'bg-transparent text-main-black py-3.5 px-6 border-2 rounded select-none transition-all',
+  'bg-transparent text-main-black py-3.5 px-6 border-2 rounded select-none transition-all text-center cursor-pointer',
   {
     variants: {
       variant: {

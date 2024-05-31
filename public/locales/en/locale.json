@@ -7,27 +7,43 @@
     "home": "Home",
     "news": "News",
     "recycle": "Recycle",
-    "advices": "Advices",
+    "advices": "Initiatives",
     "blog": "Blog"
   },
   "buttons": {
     "signIn": "Sign In",
-    "signUp": "Sign Up"
+    "signUp": "Sign Up",
+    "checkOut": "Check it out"
   },
   "home": {
     "title": "Home",
     "intro": {
+      "imageAlt": "Image of the text chance",
       "notification": {
         "title": "Advice of the day",
         "text": "Save paper. Use electronic communication tools and switch to electronic documents."
       },
       "h1": {
         "firstPart": "Every day — a new",
-        "secondPart": "to change the world."
+        "secondPart": "to change the world.",
+        "full": "Every day — a new chance to change the world."
       },
       "h2": "Be a part of it.",
       "plainText": "Want to change the world? Ask for advice from our AI assistant.",
       "buttonText": "Try GreenGlobe AI"
+    },
+    "about": {
+      "title": "About us",
+      "first": "Welcome to GreenGlobe Hub, your ultimate destination for all things ecological. At GreenGlobe Hub, we are dedicated to providing a comprehensive platform that houses the latest eco news, insightful interviews with industry experts, thought-provoking articles, and practical eco-advice to empower individuals to make environmentally conscious choices. Whether you're passionate about sustainability, biodiversity, or combating climate change, GreenGlobe Hub offers a diverse range of content to keep you informed and inspired on your journey towards a greener future.",
+      "second": "At the heart of GreenGlobe Hub lies our innovative GreenGlobeAI, a cutting-edge artificial intelligence designed to assist users with personalized eco-advice. Harnessing the power of AI technology, GreenGlobeAI offers tailored recommendations and solutions to help individuals adopt sustainable practices in their daily lives.",
+      "imageAlt": "eco-image of about section"
+    },
+    "news": {
+      "title": "News",
+      "linkLabel": "Watch more",
+      "card": {
+        "buttonLabel": "Read more"
+      }
     }
   },
   "news": {

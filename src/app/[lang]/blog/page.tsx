@@ -1,13 +1,13 @@
-'use client';
+import { ArticleList } from "@/sections/Blog/ArticleList";
+import { cookies } from "next/headers";
 
-import { useClientTranslation } from "@/internationalization/useClientTranslations";
-
-export default function Blog() {
-  const { t } = useClientTranslation();
+export default async function Page(): Promise<JSX.Element> {
+  const cookieStore = cookies();
+  const authToken = cookieStore.get('authToken');
 
   return (
-    <main>
-      <h1>{t('blog.title')}</h1>
-    </main>
+    <>
+      <ArticleList authToken={authToken?.value || ''} />
+    </>
   );
 }

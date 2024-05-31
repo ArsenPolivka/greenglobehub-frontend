@@ -1,13 +1,23 @@
-'use client';
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { Categories } from "@/sections/Recycle/Categories";
 
-import { useClientTranslation } from "@/internationalization/useClientTranslations";
-
-export default function Recycle() {
-  const { t } = useClientTranslation();
+export default async function Page(): Promise<JSX.Element> {
+  const breadcrumbs = [
+    {
+      name: "Home",
+      href: "/",
+    },
+    {
+      name: "Categories",
+      href: "/recycle",
+    },
+  ];
 
   return (
-    <main className="">
-      <h1>{t('recycle.title')}</h1>
-    </main>
+    <>
+      <Breadcrumbs breadcrumbs={breadcrumbs} className="!mb-6" />
+
+      <Categories />
+    </>
   );
 }

@@ -1,13 +1,11 @@
-'use client';
+import { SignUpForm } from '@/sections/SignUp/SignUpForm';
 
-import { useClientTranslation } from "@/internationalization/useClientTranslations";
-
-export default function SignUp() {
-  const { t } = useClientTranslation();
-
+const SignUp = () => {
   return (
-    <main>
-      <h1>{t('signUp.title')}</h1>
-    </main>
-  );
-}
+    <>
+      <SignUpForm />
+    </>
+  )
+};
+
+export default SignUp;

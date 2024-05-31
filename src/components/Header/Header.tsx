@@ -1,40 +1,78 @@
 'use client';
 
-import { useState } from 'react';
-import dynamic from 'next/dynamic'
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 
-import { LanguageSwitcher } from '../LanguageSwitcher/LanguageSwitcher';
-import { Logo } from '../Logo';
-import { Button } from '../Button';
-import { Burger } from './components/Burger';
+import { ContainerNoSSR } from '@/components/Layout/Container';
+import { LanguageSwitcher } from '../LanguageSwitcher';
 import { Navigation } from './components/Navigation';
+import { Burger } from './components/Burger';
+import { Button } from '../Button';
+import { Logo } from '../Logo';
 
 import { useClientTranslation } from '@/internationalization/useClientTranslations';
 import { useBreakpoints } from '@/hooks/useBreakpoints';
-import { useRouter } from 'next/navigation';
-import { Routes } from '@/utils/enums';
+
 import getLang from '@/helpers/getLang';
-import { ContainerNoSSR } from '@/components/Layout/Container';
+import { Routes } from '@/utils/enums';
+import { useAuthContext } from '@/hooks/useAuthContext';
+import Link from 'next/link';
+import { getUser, logout } from '@/api/auth';
 
-export const Header = () => {
-  const { t } = useClientTranslation();
+type HeaderProps = {
+  authToken?: string;
+}
+
+export const Header = ({ authToken }:HeaderProps) => {
   const [isOpen, setIsOpen] = useState(false);
-  const router = useRouter();
-
-  const lang = getLang();
+  const [userState, setUserState] = useState<any>(null);
 
   const { isXlScreen } = useBreakpoints();
+  const { t } = useClientTranslation();
+  const router = useRouter();
+  const lang = getLang();
+
+  const [{ user }, setState] = useAuthContext();
 
   const toggleBurgerOpen = () => {
     setIsOpen(!isOpen);
   };
 
+  const closeBurger = () => setIsOpen(false);
+
   const handleSignInNavigation = () => router.push(`/${lang}/${Routes.SignIn}`);
   const handleSignUpNavigation = () => router.replace(`/${lang}/${Routes.SignUp}`);
+
+  const handleLogout = async () => {
+    const response = await logout(authToken || '');
+
+    if (response) {
+      setState({ user: null, token: null });
+    }
+
+    router.push(`/${lang}`);
+  };
+
+  useEffect(() => {
+    if (authToken) {
+      const fetchUser = async () => {
+        const user = await getUser(authToken);
+        setState({ user, token: authToken });
+        setUserState(user);
+      };
+
+      fetchUser();
+    }
+  }, [authToken, setUserState]);
+
+  useEffect(() => {
+    setUserState(user);
+  }, [user]);
 
   return (
     <ContainerNoSSR className='flex justify-between items-center gap-20 max-w-full'>
       <Logo />
+
       {isXlScreen ? (
         <div className='flex items-center gap-16'>
           <Navigation lang={lang} />
@@ -42,20 +80,31 @@ export const Header = () => {
           <div className='flex items-center gap-9'>
             <LanguageSwitcher />
 
-            <div className='space-x-4'>
-              <Button type="button" variant="secondary" onClick={handleSignInNavigation}>
-                {t('buttons.signIn')}
-              </Button>
-              <Button type="button" variant="primary" onClick={handleSignUpNavigation}>
-                {t('buttons.signUp')}
-              </Button>
-            </div>
+            {!user ? (
+              <div className='space-x-4'>
+                <Button type="button" variant="secondary" onClick={handleSignInNavigation}>
+                  {t('buttons.signIn')}
+                </Button>
+                <Button type="button" variant="primary" onClick={handleSignUpNavigation}>
+                  {t('buttons.signUp')}
+                </Button>
+              </div>
+            ) : (
+              <>
+                <Link href='/' className='text-black'>
+                  {user ? (user.name || user[0].name) : '-'}
+                </Link>
+                <Button variant='secondary' onClick={handleLogout}>
+                  Logout
+                </Button>
+              </>
+            )}
           </div>
         </div>
       ) : (
         <>
           <Burger isOpen={isOpen} onClick={toggleBurgerOpen} />
-          {isOpen && <Navigation lang={lang} mobile />}
+          {isOpen && <Navigation lang={lang} closeBurger={closeBurger} mobile />}
         </>
       )}
     </ContainerNoSSR>

@@ -3,7 +3,7 @@ import NextLink from 'next/link';
 import { cva } from 'class-variance-authority';
 import cn from '@/helpers/cn';
 
-export type LinkVariant = 'primary' | 'secondary';
+export type LinkVariant = 'primary' | 'secondary' | 'tertiary';
 
 type LinkProps = LinkHTMLAttributes<HTMLAnchorElement> & {
   to: string;
@@ -38,7 +38,8 @@ const linkVariants = cva(
     variants: {
       variant: {
         primary: 'bg-transparent hover:bg-primary',
-        secondary: 'bg-main-black text-primary hover:text-main-white'
+        secondary: 'bg-main-black text-primary hover:text-main-white',
+        tertiary: 'bg-transparent underline uppercase hover:no-underline'
       }
     },
     defaultVariants: {

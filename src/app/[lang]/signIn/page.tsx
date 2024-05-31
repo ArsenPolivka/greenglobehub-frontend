@@ -1,13 +1,9 @@
-'use client';
+import { SignUpForm } from "@/sections/SignUp/SignUpForm";
 
-import { useClientTranslation } from "@/internationalization/useClientTranslations";
-
-export default function SignIn() {
-  const { t } = useClientTranslation();
-
+export default async function Page(): Promise<JSX.Element> {
   return (
-    <main>
-      <h1>{t('signIn.title')}</h1>
-    </main>
+    <>
+      <SignUpForm type="login" />
+    </>
   );
 }

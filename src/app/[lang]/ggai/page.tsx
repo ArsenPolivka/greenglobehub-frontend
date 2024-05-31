@@ -1,13 +1,10 @@
-'use client';
+import { Chat } from "@/sections/GGAI/Chat";
+import { Sidebar } from "@/sections/GGAI/Sidebar";
 
-import { useClientTranslation } from "@/internationalization/useClientTranslations";
-
-export default function GGAI() {
-  const { t } = useClientTranslation();
-
+export default async function Page(): Promise<JSX.Element> {
   return (
-    <main>
-      <h1>{t('greenGlobeAI.title')}</h1>
-    </main>
+    <>
+      <Chat />
+    </>
   );
 }
