@@ -33,7 +33,7 @@ export const NewsCard = ({ content }: NewsCardProps) => {
   return (
     <div className="flex flex-col w-full bg-primary-50 rounded h-[600px]">
       <img
-        src={urlToImage}
+        src={urlToImage || '/placeholder.jpg'}
         alt={title}
         className="w-full h-full max-h-60 object-cover rounded-t"
       />

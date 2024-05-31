@@ -5,7 +5,7 @@ export const useFetchShortNews = (pageSize: number) => {
   const [articles, setArticles] = useState<any>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
-  const query = encodeURIComponent('ecology OR climate OR change OR greta OR thunberg OR environment OR recycling OR recycle');
+  const query = encodeURIComponent('ecology OR climate OR environment OR recycling OR recycle');
 
   useEffect(() => {
     const fetchNews = async () => {
