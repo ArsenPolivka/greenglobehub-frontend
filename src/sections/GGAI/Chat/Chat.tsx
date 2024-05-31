@@ -60,7 +60,7 @@ export const Chat = () => {
       <ContainerNoSSR className='flex flex-col bg-white'>
         {!messages.length ? (
           <div className='flex-1 text-center pt-36'>
-            Hi there! I&apos;m a GreenGlobeAI chatbot. How can I help you today?
+            Привіт! Я чат-бот GreenGlobeAI. Як я можу вам допомогти сьогодні?
           </div>
         ) : null}
 
@@ -83,12 +83,12 @@ export const Chat = () => {
           <Input
             wrapperClassName='mt-full rounded-md flex-1'
             className='w-full h-full'
-            placeholder='Enter your question'
+            placeholder='Введіть ваше повідомлення...'
             value={input}
             onChangeInput={handleChange}
           />
 
-          <Button className='h-fit' type='submit'>Send</Button>
+          <Button className='h-fit' type='submit'>Надіслати</Button>
         </form>
       </ContainerNoSSR>
     </section>

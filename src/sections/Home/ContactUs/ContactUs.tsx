@@ -28,8 +28,8 @@ export const ContactUs = () => {
         </h2>
 
         <p className="md:max-w-96">
-          Lorem ipsum dolor sit amet consectetur. Quam velit facilisis et ultrices quam. Cursus donec integer tristique tincidunt.
-          Aliquam malesuada euismod consequat nisl tortor sed id eget. Enim quam libero aenean egestas aenean id.
+          Якщо у вас є будь-які питання або ви потребуєте додаткової інформації, будь ласка, зв&apos;яжіться з нами. Ми завжди раді допомогти вам! <br/><br/>
+          Заповніть форму, і наші фахівці зв&apos;яжуться з вами найближчим часом.
         </p>
       </div>
 

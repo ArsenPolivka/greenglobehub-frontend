@@ -29,7 +29,7 @@ export const SignUpForm = ({ type = "register" }: SignUpFormProps) => {
   const lang = GetLang();
   const router = useRouter();
 
-  const loginText = type === 'login' ? "Log In" : "Sign Up";
+  const loginText = type === 'login' ? "Увійти" : "Зареєструватись";
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -63,7 +63,7 @@ export const SignUpForm = ({ type = "register" }: SignUpFormProps) => {
         {type === 'register' ? (
           <Input
             type="text"
-            placeholder="Name"
+            placeholder="Ім'я"
             value={name}
             onChangeInput={(e) => setName(e.target.value)}
             wrapperClassName='w-full mb-2'
@@ -73,7 +73,7 @@ export const SignUpForm = ({ type = "register" }: SignUpFormProps) => {
 
         <Input
           type="email"
-          placeholder="Email"
+          placeholder="Електронна адреса"
           value={email}
           onChangeInput={(e) => setEmail(e.target.value)}
           wrapperClassName='w-full mb-2'
@@ -82,7 +82,7 @@ export const SignUpForm = ({ type = "register" }: SignUpFormProps) => {
 
         <Input
           type="password"
-          placeholder="Password"
+          placeholder="Пароль"
           value={password}
           onChangeInput={(e) => setPassword(e.target.value)}
           wrapperClassName='w-full mb-2'
@@ -92,7 +92,7 @@ export const SignUpForm = ({ type = "register" }: SignUpFormProps) => {
         {type === 'register' ? (
           <Input
             type="password"
-            placeholder="Confirm password"
+            placeholder="Підтвердіть пароль"
             value={confirmPassword}
             onChangeInput={(e) => setConfirmPassword(e.target.value)}
             wrapperClassName='w-full mb-6'
@@ -109,11 +109,12 @@ export const SignUpForm = ({ type = "register" }: SignUpFormProps) => {
 
         {type === 'login' ? (
           <p className='mt-6'>
-            Don&apos;t have an account? <Link href={`/${lang}/signUp`} className='text-primary'>Sign Up</Link>
+            Немає облікового запису? <Link href={`/${lang}/signUp`} className='text-primary'>Зареєструйтесь</Link>
           </p>
         ) : (
-          <p className='mt-6'>Already have an account? <Link href={`/${lang}/signIn`} className='text-primary'>Sign In</Link></p>
+          <p className='mt-6'>Вже маєте обліковий запис? <Link href={`/${lang}/signIn`} className='text-primary'>Увійдіть</Link></p>
         )}
+
       </form>
     </ContainerNoSSR>
   );
