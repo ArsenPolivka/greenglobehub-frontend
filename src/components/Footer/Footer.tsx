@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
@@ -11,6 +11,7 @@ import { Input } from '../Input';
 import { Logo } from '../Logo';
 
 import { getLinks } from '@/utils/constants';
+import { subscribeToNewsletter } from '@/api/email';
 
 type NavigationProps = {
   links: {
@@ -25,6 +26,19 @@ type NavigationProps = {
 export const Footer = () => {
   const { i18n } = useTranslation();
   const links = getLinks();
+  const [email, setEmail] = useState('');
+
+  const handleSubscribe = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const response = await subscribeToNewsletter(email);
+
+    console.log(response);
+  }
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.target.value);
+  }
 
   return (
     <ContainerNoSSR className='bg-primary'>
@@ -50,7 +64,7 @@ export const Footer = () => {
 
           <div className='ml-5 w-full max-w-96'>
             <h3 className='uppercase font-semibold mb-4'>Підписатись на розсилку</h3>
-            <form className='flex items-center gap-1 w-full'>
+            <form className='flex items-center gap-1 w-full' onSubmit={handleSubscribe}>
               <Input
                 label='Email'
                 type='email'
@@ -58,6 +72,7 @@ export const Footer = () => {
                 className='peer w-full rounded focus:border-white'
                 wrapperClassName='w-full'
                 labelClassName='peer-focus:text-white'
+                onChange={handleChange}
               />
 
               <Button variant="primary" type='submit' className='bg-white px-4 py-3'>

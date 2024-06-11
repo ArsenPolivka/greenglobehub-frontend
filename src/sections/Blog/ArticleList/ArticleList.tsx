@@ -58,7 +58,7 @@ export const ArticleList = ({ authToken }: ArticleListProps) => {
           wrapperClassName='mt-full rounded-md flex-1 max-w-md'
           className='w-full h-full'
           placeholder='Search for articles'
-          onChangeInput={(e) => setSearchQuery(e.target.value)}
+          onChange={(e: any) => setSearchQuery(e.target.value)}
         />
 
         {user && <AddArticle refetch={refetch} authToken={authToken} />}

@@ -65,7 +65,7 @@ export const SignUpForm = ({ type = "register" }: SignUpFormProps) => {
             type="text"
             placeholder="Ім'я"
             value={name}
-            onChangeInput={(e) => setName(e.target.value)}
+            onChange={(e: any) => setName(e.target.value)}
             wrapperClassName='w-full mb-2'
             className='w-full'
           />
@@ -75,7 +75,7 @@ export const SignUpForm = ({ type = "register" }: SignUpFormProps) => {
           type="email"
           placeholder="Електронна адреса"
           value={email}
-          onChangeInput={(e) => setEmail(e.target.value)}
+          onChange={(e: any) => setEmail(e.target.value)}
           wrapperClassName='w-full mb-2'
           className='w-full'
         />
@@ -84,7 +84,7 @@ export const SignUpForm = ({ type = "register" }: SignUpFormProps) => {
           type="password"
           placeholder="Пароль"
           value={password}
-          onChangeInput={(e) => setPassword(e.target.value)}
+          onChange={(e: any) => setPassword(e.target.value)}
           wrapperClassName='w-full mb-2'
           className='w-full'
         />
@@ -94,7 +94,7 @@ export const SignUpForm = ({ type = "register" }: SignUpFormProps) => {
             type="password"
             placeholder="Підтвердіть пароль"
             value={confirmPassword}
-            onChangeInput={(e) => setConfirmPassword(e.target.value)}
+            onChange={(e: any) => setConfirmPassword(e.target.value)}
             wrapperClassName='w-full mb-6'
             className='w-full'
           />
