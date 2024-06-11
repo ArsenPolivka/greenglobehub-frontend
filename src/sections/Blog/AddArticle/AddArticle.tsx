@@ -73,13 +73,13 @@ export const AddArticle = ({ refetch, authToken }: AddArticleProps) => {
                 <Label htmlFor="title" className="text-left">
                   Title
                 </Label>
-                <Input id="title" className="!text-white border-white/40 w-full" wrapperClassName='col-span-3' onChangeInput={handleTitleChange}/>
+                <Input id="title" className="!text-white border-white/40 w-full" wrapperClassName='col-span-3' onChange={handleTitleChange}/>
               </div>
               <div className="grid grid-cols-4 items-center gap-4">
                 <Label htmlFor="description" className="text-left">
                   Description
                 </Label>
-                <Input id="description" className="!text-white border-white/40 w-full" wrapperClassName='col-span-3' onChangeInput={handleDescriptionChange}/>
+                <Input id="description" className="!text-white border-white/40 w-full" wrapperClassName='col-span-3' onChange={handleDescriptionChange}/>
               </div>
               <div className="mt-2">
                 <Label htmlFor="content" className="text-left">
@@ -91,7 +91,7 @@ export const AddArticle = ({ refetch, authToken }: AddArticleProps) => {
                 <Label htmlFor="file" className="text-left">
                   Thumbnail
                 </Label>
-                <Input id="file" type='file' className="!text-white w-full" wrapperClassName='col-span-3' onChangeInput={handleThumbnailChange} />
+                <Input id="file" type='file' className="!text-white w-full" wrapperClassName='col-span-3' onChange={handleThumbnailChange} />
               </div>
             </div>
             <SheetFooter>

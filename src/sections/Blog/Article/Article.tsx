@@ -150,7 +150,7 @@ export const Article = ({ articleId }: ArticleProps) => {
                     id="content"
                     className="w-full h-[600px]"
                     value={editedContent}
-                    onChangeTextarea={(e) => {
+                    onChange={(e: any) => {
                       setEditedContent(e.target.value);
                     }}
                   />
